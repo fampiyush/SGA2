@@ -15,7 +15,13 @@
     <label for="title">Title:</label>
     <input type="text" id="title" name="title" required><br><br>
     <label for="author">Author:</label>
-    <input type="text" id="author" name="author" required><br><br>
+    <input type="text" id="author" name="author" required>
+    <span>(separate authors name by comma)</span>
+    <br><br>
+    <label for="category">Category:</label>
+    <input type="text" id="category" name="category" required><br><br>
+    <label for="year">Year:</label>
+    <input type="number" id="year" name="year" required><br><br>
     <input type="submit" value="Submit">
   </form>
 </body>
