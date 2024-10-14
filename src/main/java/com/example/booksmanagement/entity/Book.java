@@ -1,8 +1,6 @@
-package com.example.booksmanagement;
+package com.example.booksmanagement.entity;
 
 import jakarta.persistence.*;
-
-import java.util.List;
 
 @Entity
 public class Book {
@@ -10,20 +8,17 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int book_id;
     private String title;
-    @ManyToMany
-    @JoinColumn(name = "author_id")
-    private List<Author> author;
     @ManyToOne
-    private Category category;
+    @JoinColumn(name = "author_id")
+    private Author author;
     private int year;
 
     public Book() {
     }
 
-    public Book(String title, List<Author> author, Category category, int year) {
+    public Book(String title, Author author, int year) {
         this.title = title;
         this.author = author;
-        this.category = category;
         this.year = year;
     }
 
@@ -35,12 +30,8 @@ public class Book {
         return title;
     }
 
-    public List<Author> getAuthor() {
+    public Author getAuthor() {
         return author;
-    }
-
-    public Category getCategory() {
-        return category;
     }
 
     public int getYear() {
@@ -55,12 +46,8 @@ public class Book {
         this.title = title;
     }
 
-    public void setAuthor(List<Author> author) {
+    public void setAuthor(Author author) {
         this.author = author;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
     }
 
     public void setYear(int year) {
@@ -73,7 +60,6 @@ public class Book {
                 "book_id=" + book_id +
                 ", title='" + title + '\'' +
                 ", author=" + author +
-                ", category=" + category +
                 ", year=" + year +
                 '}';
     }
