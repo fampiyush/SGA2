@@ -18,8 +18,8 @@ public class FormController {
     AuthorRepo authorRepo;
 
     @RequestMapping("/")
-    public String showForm() {
-        return "form.jsp";
+    public String home() {
+        return "home.jsp";
     }
 
     @RequestMapping("/addBook")
