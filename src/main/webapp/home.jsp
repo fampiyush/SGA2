@@ -19,7 +19,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            font-size: 24px;
+            font-size: 20px;
         }
         #container a {
             text-decoration: none;
