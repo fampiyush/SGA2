@@ -39,7 +39,7 @@
     <h1>Books Management System</h1><br>
     <div id="container">
         <a href="form.jsp">Add a Book</a>
-        <a href="#">List Books/Authors</a>
+        <a href="#">Query Books/Authors</a>
         <a href="#">Update Book Entries</a>
     </div>
 </body>

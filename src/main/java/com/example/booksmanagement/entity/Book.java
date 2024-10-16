@@ -13,6 +13,9 @@ public class Book {
     private Author author;
     private int year;
 
+    @Transient
+    private String authorName;
+
     public Book() {
     }
 
@@ -52,6 +55,14 @@ public class Book {
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
     }
 
     @Override
