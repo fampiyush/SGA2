@@ -5,6 +5,6 @@
 </head>
 <body>
     <h1>Book Added</h1><br>
-    <a href="form.jsp">Add Another Book</a>
+    <a href="form">Add Another Book</a>
 </body>
 </html>
