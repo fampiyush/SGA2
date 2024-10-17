@@ -1,9 +1,8 @@
 package com.example.booksmanagement.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Author {
@@ -11,6 +10,9 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int author_id;
     private String name;
+    @OneToMany
+    @JoinColumn(name = "author_id")
+    private List<Book> books;
 
     public Author() {
     }
@@ -33,5 +35,13 @@ public class Author {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void addBook(Book book) {
+        this.books.add(book);
     }
 }
