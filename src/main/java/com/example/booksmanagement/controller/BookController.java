@@ -36,4 +36,11 @@ public class BookController {
         bookService.saveBook(book);
         return "confirm.jsp";
     }
+
+    @GetMapping("/query/books")
+    public String queryBooks(Model model) {
+        model.addAttribute("books", bookService.getAllBooks());
+        model.addAttribute("path", "books");
+        return "query.jsp";
+    }
 }
