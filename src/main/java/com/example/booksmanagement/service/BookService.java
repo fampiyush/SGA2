@@ -25,6 +25,7 @@ public class BookService {
     public void saveBook(Book book) {
         Author author = authorService.getOrCreateAuthor(book.getAuthorName());
         book.setAuthor(author);
-        bookRepo.save(book);
+        Book b = bookRepo.save(book);
+        author.addBook(b);
     }
 }
