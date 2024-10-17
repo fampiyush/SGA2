@@ -47,6 +47,7 @@
         #link {
             position: absolute;
             bottom: 16px;
+            left: 49%;
         }
         #menu {
             list-style-type: none;
@@ -96,12 +97,14 @@
     <div>
         <table style="display: ${path == 'books' ? 'block' : 'none'}">
             <tr>
+                <th>Book Id</th>
                 <th>Title</th>
                 <th>Author</th>
                 <th>Year</th>
             </tr>
             <c:forEach var="book" items="${books}">
                 <tr>
+                    <td>${book.id}</td>
                     <td>${book.title}</td>
                     <td>${book.author.name}</td>
                     <td>${book.year}</td>
@@ -111,11 +114,13 @@
 
         <table style="display: ${path == 'authors' ? 'block' : 'none'}">
             <tr>
+                <th>Author Id</th>
                 <th>Name</th>
                 <th>Books</th>
             </tr>
             <c:forEach var="author" items="${authors}">
                 <tr>
+                    <td>${author.id}</td>
                     <td>${author.name}</td>
                     <td>
                         <c:forEach var="book" items="${author.books}">
