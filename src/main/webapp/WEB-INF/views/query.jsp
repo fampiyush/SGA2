@@ -67,6 +67,10 @@
             opacity: 0.8;
             cursor: pointer;
         }
+        #menu a {
+            text-decoration: none;
+            color: #ffffff;
+        }
         table {
             text-align: start;
             margin-top: 8px;
@@ -82,12 +86,15 @@
 <body>
     <h1>Query Books/Authors</h1>
     <ul id="menu">
-        <li style="background-color: ${path == 'books' ? '#007bff' : ''}">List Books</li>
-        <li>List Authors</li>
-        <li>List Books by Author</li>
+        <a href="books">
+            <li style="background-color: ${path == 'books' ? '#007bff' : ''}">List Books</li>
+        </a>
+        <a href="authors">
+            <li style="background-color: ${path == 'authors' ? '#007bff' : ''}">List Authors</li>
+        </a>
     </ul>
     <div>
-        <table>
+        <table style="display: ${path == 'books' ? 'block' : 'none'}">
             <tr>
                 <th>Title</th>
                 <th>Author</th>
@@ -101,6 +108,22 @@
                 </tr>
             </c:forEach>
         </table>
+
+        <table style="display: ${path == 'authors' ? 'block' : 'none'}">
+            <tr>
+                <th>Name</th>
+                <th>Books</th>
+            </tr>
+            <c:forEach var="author" items="${authors}">
+                <tr>
+                    <td>${author.name}</td>
+                    <td>
+                        <c:forEach var="book" items="${author.books}">
+                            ${book.title}<br>
+                        </c:forEach>
+                    </td>
+                </tr>
+            </c:forEach>
     </div>
 <div id="link">
     <a href="/">Home</a>
