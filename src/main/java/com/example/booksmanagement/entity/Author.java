@@ -2,6 +2,7 @@ package com.example.booksmanagement.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,6 +20,7 @@ public class Author {
 
     public Author(String name) {
         this.name = name;
+        this.books = new ArrayList<>();
     }
 
     public int getId() {
