@@ -32,7 +32,7 @@ public class BookService {
             prevAuthor = bookRepo.findById(book.getId()).orElse(null).getAuthor();
         }
         Author author = authorService.getOrCreateAuthor(book.getAuthorName());
-        if (prevAuthor != author && prevAuthor.getBooks().size() == 1) {
+        if (prevAuthor != null && prevAuthor != author && prevAuthor.getBooks().size() == 1) {
             authorService.deleteAuthor(prevAuthor);
         }
         book.setAuthor(author);
