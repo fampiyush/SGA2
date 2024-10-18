@@ -21,9 +21,20 @@ public class BookService {
         return bookRepo.findAll();
     }
 
+    public Book getBookById(int id) {
+        return bookRepo.findById(id).orElse(null);
+    }
+
     @Transactional
     public void saveBook(Book book) {
+        Author prevAuthor = null;
+        if (book.getId() != 0) {
+            prevAuthor = bookRepo.findById(book.getId()).orElse(null).getAuthor();
+        }
         Author author = authorService.getOrCreateAuthor(book.getAuthorName());
+        if (prevAuthor != author && prevAuthor.getBooks().size() == 1) {
+            authorService.deleteAuthor(prevAuthor);
+        }
         book.setAuthor(author);
         Book b = bookRepo.save(book);
         author.addBook(b);

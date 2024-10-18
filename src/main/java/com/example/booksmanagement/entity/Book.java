@@ -70,7 +70,7 @@ public class Book {
         return "Book{" +
                 "book_id=" + book_id +
                 ", title='" + title + '\'' +
-                ", author=" + author +
+                ", author=" + author.getName() +
                 ", year=" + year +
                 '}';
     }

@@ -13,11 +13,15 @@ public class AuthorService {
     private AuthorRepo authorRepo;
 
     public Author getOrCreateAuthor(String author) {
-        Author contains = authorRepo.findByNameContainingIgnoreCase(author);
+        Author contains = authorRepo.findByNameIgnoreCase(author);
         return contains != null ? contains : authorRepo.save(new Author(author));
     }
 
     public List<Author> getAllAuthors() {
         return authorRepo.findAll();
+    }
+
+    public void deleteAuthor(Author previousAuthor) {
+        authorRepo.delete(previousAuthor);
     }
 }

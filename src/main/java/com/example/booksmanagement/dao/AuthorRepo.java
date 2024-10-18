@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AuthorRepo extends JpaRepository<Author, Integer> {
-    Author findByNameContainingIgnoreCase(String author);
+    Author findByNameIgnoreCase(String author);
 }

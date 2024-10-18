@@ -5,6 +5,7 @@
   Time: 21:15
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -57,13 +58,14 @@
     </style>
 </head>
 <body>
-  <form action="form" method="post">
+  <form action="${book.id == null ? 'form' : '/books/update'}" method="post">
+    <input type="hidden" name="id" value="${book.id == null ? '' : book.id}">
     <label for="title">Title:</label>
-    <input type="text" id="title" name="title" required><br><br>
+    <input type="text" id="title" name="title" value="${book.id == null ? '' : book.title}" required><br><br>
     <label for="authorName">Author:</label>
-    <input type="text" id="authorName" name="authorName" required><br><br>
+    <input type="text" id="authorName" name="authorName" value="${book.id == null ? '' : book.author.name}" required><br><br>
     <label for="year">Year:</label>
-    <input type="number" id="year" name="year" required><br><br>
+    <input type="number" id="year" name="year" value="${book.id == null ? '' : book.year}" required><br><br>
     <input type="submit" value="Submit">
   </form>
   <div id="link">
