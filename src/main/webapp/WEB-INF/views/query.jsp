@@ -82,6 +82,21 @@
         th, td {
             padding: 8px;
         }
+        .edit {
+            background-color: #1bbf35;
+            cursor: pointer;
+            border-radius: 8px;
+            padding: 2px;
+            text-align: center;
+        }
+        .edit:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+        td a {
+            text-decoration: none;
+            color: #ffffff;
+        }
     </style>
 </head>
 <body>
@@ -101,6 +116,7 @@
                 <th>Title</th>
                 <th>Author</th>
                 <th>Year</th>
+                <th>Actions</th>
             </tr>
             <c:forEach var="book" items="${books}">
                 <tr>
@@ -108,6 +124,13 @@
                     <td>${book.title}</td>
                     <td>${book.author.name}</td>
                     <td>${book.year}</td>
+                    <td>
+                        <a href="/books/edit/${book.id}">
+                            <div class="edit">
+                                Edit
+                            </div>
+                        </a>
+                    </td>
                 </tr>
             </c:forEach>
         </table>
