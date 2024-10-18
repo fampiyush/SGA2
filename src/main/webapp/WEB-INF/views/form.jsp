@@ -58,14 +58,14 @@
     </style>
 </head>
 <body>
-  <form action="${book.id == null ? 'form' : '/books/update'}" method="post">
-    <input type="hidden" name="id" value="${book.id == null ? '' : book.id}">
+  <form action="${book.title == null ? '/form' : '/books/update'}" method="post">
+    <input type="hidden" name="id" value="${book.id}">
     <label for="title">Title:</label>
-    <input type="text" id="title" name="title" value="${book.id == null ? '' : book.title}" required><br><br>
+    <input type="text" id="title" name="title" value="${book.title == null ? '' : book.title}" required><br><br>
     <label for="authorName">Author:</label>
-    <input type="text" id="authorName" name="authorName" value="${book.id == null ? '' : book.author.name}" required><br><br>
+    <input type="text" id="authorName" name="authorName" value="${book.title == null ? '' : book.author.name}" required><br><br>
     <label for="year">Year:</label>
-    <input type="number" id="year" name="year" value="${book.id == null ? '' : book.year}" required><br><br>
+    <input type="number" id="year" name="year" value="${book.title == null ? '' : book.year}" required><br><br>
     <input type="submit" value="Submit">
   </form>
   <div id="link">
