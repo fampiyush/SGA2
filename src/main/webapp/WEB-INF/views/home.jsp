@@ -11,7 +11,7 @@
             align-items: center;
         }
         #container {
-            height: 25%;
+            height: 16%;
             background-color: #393b3b;
             border-radius: 8px;
             box-shadow: #ffffff 0 0 10px;
@@ -39,8 +39,7 @@
     <h1>Books Management System</h1><br>
     <div id="container">
         <a href="form">Add a Book</a>
-        <a href="query/books">Query Books/Authors</a>
-        <a href="#">Update Book Entries</a>
+        <a href="query/books">Query/Update Entries</a>
     </div>
 </body>
 </html>
