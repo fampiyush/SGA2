@@ -24,4 +24,8 @@ public class AuthorService {
     public void deleteAuthor(Author previousAuthor) {
         authorRepo.delete(previousAuthor);
     }
+
+    public Author getAuthorById(int i) {
+        return authorRepo.findById(i).orElse(null);
+    }
 }
